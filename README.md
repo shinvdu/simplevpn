@@ -31,12 +31,12 @@ $ bash scripts/build.sh
 
 # Server:
 ```
-sudo ./main -S -l=:3001 -c=172.16.0.1/24 -k=123456 
+sudo ./bin/govpn-linux-amd64 -S -l=:3001 -c=172.16.0.1/24 -k=123456 
 ```
 
 # Client:
 ```
-sudo bin/govpn-linux-amd64 -l=:3000 -s=192.168.2.94:3001 -c=172.16.0.10/24 -k=123456
+sudo ./bin/govpn-linux-amd64 -l=:3000 -s=192.168.2.94:3001 -c=172.16.0.10/24 -k=123456
 ```
 
 # Server Setup:
