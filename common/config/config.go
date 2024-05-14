@@ -1,6 +1,6 @@
 package config
 
-import "github.com/krishpranav/govpn/common/cipher"
+import "github.com/shinvdu/simplevpn/common/cipher"
 
 type Config struct {
 	LocalAddr string

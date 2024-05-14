@@ -3,7 +3,7 @@ package vpn
 import (
 	"log"
 
-	"github.com/krishpranav/govpn/common/osutil"
+	"github.com/shinvdu/simplevpn/common/osutil"
 	"github.com/songgao/water"
 )
 

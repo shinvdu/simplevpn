@@ -6,9 +6,9 @@ import (
 	"log"
 	"net"
 
-	"github.com/krishpranav/govpn/common/cipher"
-	"github.com/krishpranav/govpn/common/config"
-	"github.com/krishpranav/govpn/vpn"
+	"github.com/shinvdu/simplevpn/common/cipher"
+	"github.com/shinvdu/simplevpn/common/config"
+	"github.com/shinvdu/simplevpn/vpn"
 	"github.com/songgao/packets/ethernet"
 	"github.com/songgao/water"
 	"golang.org/x/net/ipv4"

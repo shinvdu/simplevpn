@@ -5,9 +5,9 @@ import (
 	"log"
 	"net"
 
-	"github.com/krishpranav/govpn/common/cipher"
-	"github.com/krishpranav/govpn/common/config"
-	"github.com/krishpranav/govpn/vpn"
+	"github.com/shinvdu/simplevpn/common/cipher"
+	"github.com/shinvdu/simplevpn/common/config"
+	"github.com/shinvdu/simplevpn/vpn"
 
 	// "github.com/songgao/water/waterutil"
 	"github.com/songgao/packets/ethernet"

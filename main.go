@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/krishpranav/govpn/client"
-	"github.com/krishpranav/govpn/common/config"
-	"github.com/krishpranav/govpn/server"
+	"github.com/shinvdu/simplevpn/client"
+	"github.com/shinvdu/simplevpn/common/config"
+	"github.com/shinvdu/simplevpn/server"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
 	flag.StringVar(&config.LocalAddr, "l", "0.0.0.0:3000", "local address")
 	flag.StringVar(&config.ServerAddr, "s", "0.0.0.0:3001", "server address")
 	flag.StringVar(&config.Key, "k", "6w9z$C&F)J@NcRfWjXn3r4u7x!A%D*G-", "encryption key")
-	flag.StringVar(&config.Protocol, "p", "wss", "protocol ws/wss/udp")
+	flag.StringVar(&config.Protocol, "p", "udp", "protocol udp")
 	flag.BoolVar(&config.ServerMode, "S", false, "server mode")
 	flag.Parse()
 	config.Init()
@@ -26,12 +26,6 @@ func main() {
 			server.StartUDPServer(config)
 		} else {
 			client.StartUDPClient(config)
-		}
-	case "ws":
-		if config.ServerMode {
-			server.StartWSServer(config)
-		} else {
-			client.StartWSClient(config)
 		}
 	default:
 	}

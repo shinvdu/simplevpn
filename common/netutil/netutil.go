@@ -10,7 +10,7 @@ import (
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
 	"github.com/gorilla/websocket"
-	"github.com/krishpranav/govpn/common/config"
+	"github.com/shinvdu/simplevpn/common/config"
 	"github.com/songgao/water/waterutil"
 )
 

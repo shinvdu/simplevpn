@@ -5,7 +5,7 @@ A Simple VPN Built In Golang
 
 # Installation
 ```
-$ git clone https://github.com/krishpranav/govpn
+$ git clone https://github.com/shinvdu/simplevpn.git
 ```
 
 # Usage:
@@ -17,7 +17,7 @@ Usage of ./main:
   -k string
         encryption key (default "S#Q#FBSDAE#%!@#!@#%!NDADSA")
   -p string
-        protocol ws/wss/udp (default "wss")
+        protocol udp (default "udp")
   -l string
         local address (default "0.0.0.0:3000")
   -s string
@@ -31,17 +31,16 @@ $ bash scripts/build.sh
 
 # Server:
 ```
-sudo ./main -S -l=:3001 -c=172.16.0.1/24 -k=123456
+sudo ./main -S -l=:3001 -c=172.16.0.1/24 -k=123456 
 ```
 
 # Client:
 ```
-sudo ./main -l=:3000 -s=server-addr:3001 -c=172.16.0.10/24 -k=123456
+sudo bin/govpn-linux-amd64 -l=:3000 -s=192.168.2.94:3001 -c=172.16.0.10/24 -k=123456
 ```
 
 # Server Setup:
 
-- Add TLS for websocket,reverse proxy server(3001) via nginx/caddy(443)
 
 - Enable IP forwarding on server
 

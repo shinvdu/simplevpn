@@ -9,3 +9,8 @@ main
 
 # system cache
 .DS_Store
+vendor/
+bin/
+server.sh
+client.sh
+a.sh
