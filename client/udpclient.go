@@ -47,9 +47,6 @@ func StartUDPClient(config config.Config) {
 			frame.Resize(n)
 			b := cipher.XOR(buf[:n])
 			copy(frame[:n], b[:n])
-			// if !waterutil.IsIPv4(b) {
-			// 	continue
-			// }
 			// log.Printf("Dst: %s\n", frame.Destination())
 			// log.Printf("Src: %s\n", frame.Source())
 			// log.Printf("Ethertype: % x\n", frame.Ethertype())
@@ -63,32 +60,20 @@ func StartUDPClient(config config.Config) {
 		}
 	}()
 
-	// packet := make([]byte, 1500)
 	var packet ethernet.Frame
 
-	// conn.WriteToUDP(b, serverAddr)
-	// create a byte slic with "hello"
 	hello := []byte("hello")
-	// get all data from slice hello
-
-	// hello_enc := cipher.XOR(packet[:])
 	conn.WriteToUDP(hello, serverAddr)
 
 	for {
 		packet.Resize(1500)
-		// n, err := iface.Read(packet)
 		n, err := iface.Read([]byte(packet))
 
 		// fmt.Println("rechive data size:", n)
-		// fmt.Println(packet)
 		if err != nil || n == 0 {
-			// fmt.Println("err iface data error:", err)
+			fmt.Println("err iface data error:", err)
 			continue
 		}
-		// if !waterutil.IsIPv4(packet) {
-		// 	fmt.Println("not a IsIPv4 package, skip")
-		// 	continue
-		// }
 		packet = packet[:n]
 
 		b := cipher.XOR(packet[:n])
@@ -99,8 +84,6 @@ func StartUDPClient(config config.Config) {
 		ip_payload := packet.Payload()
 		// log.Printf("Payload: % x\n", ip_payload)
 		header, _ := ipv4.ParseHeader(ip_payload[:])
-		// get src from header
-
 		// fmt.Printf("Received %d bytes from iface, header: %+v\n", n, header)
 		log.Printf("write remote: %s => %s \n", header.Src, header.Dst)
 
